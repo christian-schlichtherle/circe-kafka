@@ -1,4 +1,4 @@
-package nequi.circe
+package global.namespace.circe
 
 import io.circe.parser.decode
 import io.circe.{Decoder, Encoder}

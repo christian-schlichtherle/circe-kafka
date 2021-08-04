@@ -1,8 +1,7 @@
 import sbt.Developer
+import ReleaseTransformations._
 
-val mainScala = "2.12.14"
-
-crossScalaVersions := Seq(mainScala, "2.13.6")
+crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1")
 developers := List(
   Developer(
     "NeQuissimus",
@@ -17,22 +16,49 @@ developers := List(
     url("https://schlichtherle.de")
   )
 )
-homepage := Some(url("http://nequissimus.com/"))
+homepage := Some(url("https://github.com/christian-schlichtherle/circe-kafka"))
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-generic" % "0.14.1" % Test,
   "io.circe" %% "circe-parser" % "0.14.1",
   "org.apache.kafka" % "kafka-clients" % "2.8.0",
   "org.scalatest" %% "scalatest" % "3.2.9" % Test,
 )
-licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
+licenses := Seq("Apache License, Version 2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0"))
 name := "circe-kafka"
-organization := "com.nequissimus"
-scalacOptions := Seq("-deprecation", "-encoding", "UTF-8", "-feature")
-scalaVersion := mainScala
-scmInfo := Some(
-  ScmInfo(url("https://github.com/NeQuissimus/circe-kafka/"), "scm:git:git@github.com:NeQuissimus/circe-kafka.git")
+normalizedName := "Circe Kafka"
+organization := "global.namespace.circe-kafka"
+pomExtra := {
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/christian-schlichtherle/circe-kafka/issues</url>
+  </issueManagement>
+}
+publishTo := sonatypePublishToBundle.value
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  releaseStepCommandAndRemaining("+test"),
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  releaseStepCommandAndRemaining("+publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
+  setNextVersion,
+  commitNextVersion,
+  pushChanges,
 )
+sonatypeProfileName := "global.namespace"
+scalacOptions := Seq("-deprecation", "-encoding", "UTF-8", "-feature")
+scalaVersion := crossScalaVersions.value.last
+scmInfo := Some(
+  ScmInfo(url("https://github.com/christian-schlichtherle/circe-kafka"), "scm:git:git@github.com:christian-schlichtherle/circe-kafka.git")
+)
+scmInfo := Some(ScmInfo(
+  browseUrl = url("https://github.com/christian-schlichtherle/circe-kafka"),
+  connection = "scm:git:git@github.com/christian-schlichtherle/circe-kafka.git",
+))
+versionScheme := Some("semver-spec")
 
 // http://www.scalatest.org/user_guide/using_scalatest_with_sbt
 Test / logBuffered := false
-Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
