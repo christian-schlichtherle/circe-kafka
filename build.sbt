@@ -24,8 +24,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.9" % Test,
 )
 licenses := Seq("Apache License, Version 2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0"))
-name := "circe-kafka"
-normalizedName := "Circe Kafka"
+name := "Circe Kafka"
+normalizedName := "circe-kafka"
 organization := "global.namespace.circe-kafka"
 pomExtra := {
   <issueManagement>
