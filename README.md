@@ -9,7 +9,7 @@ Provides an implicit conversion from Circe's `Encoder`, `Decoder` and `Codec` ty
 `Deserializer` and `Serde` types in order to serialize all data in [JSON format](https://json.org).
 
 > This fork is based on [original work by Tim Steinbach](https://github.com/NeQuissimus/circe-kafka) - kudos to you!
-> It has been primarily created to add support for value classes (i.e. Serde[A] forSome { type A  <: AnyVal }).
+> It has been primarily created to add support for value classes (i.e. `Serde[A] forSome { type A  <: AnyVal }`).
 > It also updates dependencies, improves test coverage and is cross-compiled for Scala 2.12, 2.13 and 3.
 
 ## Artifact
