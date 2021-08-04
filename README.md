@@ -1,5 +1,7 @@
-[![Build Status](https://travis-ci.org/NeQuissimus/circe-kafka.svg?branch=master)](https://travis-ci.org/NeQuissimus/circe-kafka)
-![Maven Central](https://maven-badges.herokuapp.com/maven-central/global.namespace.circe-kafka/circe-kafka_2.13/badge.svg)
+[![Release Notes](https://img.shields.io/github/release/christian-schlichtherle/circe-kafka.svg)](https://github.com/christian-schlichtherle/circe-kafka/releases/latest)
+[![Maven Central](https://img.shields.io/maven-central/v/global.namespace.circe-kafka/circe-kafka_3)](https://search.maven.org/artifact/global.namespace.circe-kafka/circe-kafka_3)
+[![Apache License 2.0](https://img.shields.io/github/license/christian-schlichtherle/circe-kafka.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Test Workflow](https://github.com/christian-schlichtherle/circe-kafka/workflows/test/badge.svg)](https://github.com/christian-schlichtherle/circe-kafka/actions?query=workflow%3Atest)
 
 # Circe-Kafka
 
