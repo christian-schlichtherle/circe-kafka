@@ -15,7 +15,7 @@ Provides an implicit conversion from Circe's `Encoder`, `Decoder` and `Codec` ty
 ## Artifact
 
 ```scala
-libraryDependencies ++= "global.namespace.circe-kafka" %% "circe-kafka" % "2.8.0"
+libraryDependencies ++= "global.namespace.circe-kafka" %% "circe-kafka" % "3.0.0"
 ```
 
 Note that this library attempts to match the Kafka version.
